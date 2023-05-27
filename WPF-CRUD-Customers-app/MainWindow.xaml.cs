@@ -21,11 +21,14 @@ namespace WPF_CRUD_Customers_app
     /// </summary>
     public partial class MainWindow : Window
     {
-        CustomerDbContext context;
-        Customer NewCustomer = new Customer();
-        Customer selectedCustomer = new Customer();
+        private CustomerDbContext context;
+        private Customer NewCustomer = new Customer();
+        private Customer selectedCustomer = new Customer();
 
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// </summary>
+        /// <param name="context">The instance of the CustomerDbContext.</param>
         public MainWindow(CustomerDbContext context)
         {
             this.context = context;
@@ -33,7 +36,6 @@ namespace WPF_CRUD_Customers_app
             GetCustomers();
             NewCustomerGrid.DataContext = NewCustomer;
         }
-
 
         private void GetCustomers()
         {

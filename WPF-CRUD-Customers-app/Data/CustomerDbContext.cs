@@ -7,9 +7,16 @@ using System.Threading.Tasks;
 
 namespace WPF_CRUD_Customers_app.Data
 {
+    /// <summary>
+    /// Represents the database context for customers.
+    /// </summary>
     public class CustomerDbContext : DbContext
     {
         #region Constructor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CustomerDbContext"/> class with the specified options.
+        /// </summary>
+        /// <param name="options">The options for configuring the customer database context.</param>
         public CustomerDbContext(DbContextOptions<CustomerDbContext> options) : base(options)
         {
             Database.EnsureCreated();
@@ -17,10 +24,17 @@ namespace WPF_CRUD_Customers_app.Data
         #endregion
 
         #region Public properties
+        /// <summary>
+        /// Gets or sets the DbSet of customers.
+        /// </summary>
         public DbSet<Customer> Customers { get; set; }
         #endregion
 
         #region Overridden methods
+        /// <summary>
+        /// Configures the model of the customer database context.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder used to construct the model.</param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Customer>().HasData(GetCustomers());
@@ -29,6 +43,10 @@ namespace WPF_CRUD_Customers_app.Data
         #endregion
 
         #region Private methods
+        /// <summary>
+        /// Gets the initial customers data.
+        /// </summary>
+        /// <returns>An array of initial customer objects.</returns>
         private Customer[] GetCustomers()
         {
             return new Customer[]

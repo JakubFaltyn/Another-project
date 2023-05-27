@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using WPF_CRUD_Customers_app.Data;
 
+
 namespace WPF_CRUD_Customers_app
 {
     /// <summary>
@@ -21,6 +22,9 @@ namespace WPF_CRUD_Customers_app
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="App"/> class.
+        /// </summary>
         public App()
         {
             ServiceCollection services = new ServiceCollection();
@@ -35,8 +39,12 @@ namespace WPF_CRUD_Customers_app
         }
         #endregion
 
-
         #region Event Handlers
+        /// <summary>
+        /// Handles the application startup event.
+        /// </summary>
+        /// <param name="s">The sender object.</param>
+        /// <param name="e">The startup event arguments.</param>
         private void OnStartup(object s, StartupEventArgs e)
         {
             var mainWindow = serviceProvider.GetService<MainWindow>();
